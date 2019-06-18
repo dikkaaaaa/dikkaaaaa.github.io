@@ -12,7 +12,10 @@
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 			<!-- thanks: https://stackoverflow.com/questions/2988050/html5-audio-player-jquery-toggle-click-play-pause -->
 			<script>
+
 				$(document).ready(function() {
+					document.getElementById('opaq_in').children[0].className += ' load';
+
     				var playing = false;
 
 				    $('i#button').click(function() {
@@ -38,28 +41,41 @@
 				  	font-weight: bold;
 				}
 
-				.centered {
-				  text-align: center;
+
+  				#opaq_in p {
+  				  text-align: center;
 				  position: fixed; /* or absolute */
 				  top: 50%;
 				  left: 50%;
 				  /* bring your own prefixes */
 				  transform: translate(-50%, -50%);
+				  opacity: 0;
+				  -webkit-transition: opacity 2s ease-in;
+       			  -moz-transition: opacity 2s ease-in;
+        		  -ms-transition: opacity 2s ease-in;
+         		  -o-transition: opacity 2s ease-in;
+            	  transition: opacity 2s ease-in;
+				}
+
+				#opaq_in p.load {
+					opacity: 1;
 				}
 			</style>
 		</head> 
 		<body>
-			<p class="centered">
-				Hey.<br>
-				<audio id="player" preload="auto" loop>
-					<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.mp3" type="audio/mp3" />
-				 	<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.ogg" type="audio/ogg" />  
-				</audio>
-				<i id="button" class="far fa-play-circle fa-lg" href="#" ></i>
-				<!--
-				<button class="btn btn-default" type="submit" onclick="document.getElementById('sound1').play();">Play it.</button>
-				-->
-			</p>
+			<div id="opaq_in">
+				<p>
+					Hey.<br>
+					<audio id="player" preload="auto" loop>
+						<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.mp3" type="audio/mp3" />
+					 	<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.ogg" type="audio/ogg" />
+					</audio>
+					<i id="button" class="far fa-play-circle fa-lg" href="#" ></i>
+					<!--
+					<button class="btn btn-default" type="submit" onclick="document.getElementById('sound1').play();">Play it.</button>
+					-->
+				</p>
+			</div>
 		</body>
 	</html>
 
