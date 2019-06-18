@@ -15,18 +15,17 @@
 				$(document).ready(function() {
     				var playing = false;
 
-				    $('a#button').click(function() {
+				    $('i#button').click(function() {
 				        $(this).toggleClass("down");
 
 				        if (playing == false) {
 				            document.getElementById('player').play();
 				            playing = true;
-				            $(this).text("Pause it.");
-
+				            document.getElementById('button').className = 'far fa-pause-circle fa-lg';
 				        } else {
 				            document.getElementById('player').pause();
 				            playing = false;
-				            $(this).text("Ok, continue.");
+				            document.getElementById('button').className = 'far fa-play-circle fa-lg';
 				        }
 			    	});
 				});
@@ -34,14 +33,9 @@
 
 			<style>
 				body {
-					font-size:35px;
+					font-size:50px;
 					font-family:'Courier New', Arial;
 				  	font-weight: bold;
-				}
-
-				#button {
-					font-size:22px; 
-					font-weight: bold;
 				}
 
 				.centered {
@@ -61,7 +55,7 @@
 					<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.mp3" type="audio/mp3" />
 				 	<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.ogg" type="audio/ogg" />  
 				</audio>
-				<a id="button" class="btn btn-default" href="#" role="button">Play it.</a>
+				<i id="button" class="far fa-play-circle fa-lg" href="#" ></i>
 				<!--
 				<button class="btn btn-default" type="submit" onclick="document.getElementById('sound1').play();">Play it.</button>
 				-->
