@@ -1,16 +1,49 @@
 <!DOCTYPE html>
-	<html>
+	<html lang="en">
 		<head>
-			<title>dikkaaaaa....</title>
+			<meta charset="utf-8"/>
+			<title>Alameda.</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+			<!-- Bootstrap: Latest compiled and minified CSS -->
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+			<!-- Bootstrap: Latest compiled and minified JavaScript -->
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+			<!-- thanks: https://stackoverflow.com/questions/2988050/html5-audio-player-jquery-toggle-click-play-pause -->
+			<script>
+				$(document).ready(function() {
+    				var playing = false;
+
+				    $('a#button').click(function() {
+				        $(this).toggleClass("down");
+
+				        if (playing == false) {
+				            document.getElementById('player').play();
+				            playing = true;
+				            $(this).text("Pause it.");
+
+				        } else {
+				            document.getElementById('player').pause();
+				            playing = false;
+				            $(this).text("Ok, continue.");
+				        }
+			    	});
+				});
+			</script>
+
 			<style>
-				html {
-					font-size:16px;
+				body {
+					font-size:35px;
 					font-family:'Courier New', Arial;
 				  	font-weight: bold;
 				}
-				
+
+				#button {
+					font-size:22px; 
+					font-weight: bold;
+				}
+
 				.centered {
 				  text-align: center;
 				  position: fixed; /* or absolute */
@@ -24,8 +57,16 @@
 		<body>
 			<p class="centered">
 				Hey.<br>
-				<audio ref='alameda' src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.mp3" autoPlay loop></audio>
+				<audio id="player" preload="auto" loop>
+					<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.mp3" type="audio/mp3" />
+				 	<source src="https://raw.githubusercontent.com/dikkaaaaa/dikkaaaaa.github.io/master/alameda_fadeinout.ogg" type="audio/ogg" />  
+				</audio>
+				<a id="button" class="btn btn-default" href="#" role="button">Play it.</a>
+				<!--
+				<button class="btn btn-default" type="submit" onclick="document.getElementById('sound1').play();">Play it.</button>
+				-->
 			</p>
 		</body>
 	</html>
+
 
